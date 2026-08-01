@@ -140,17 +140,9 @@
   .video-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #E4DFCE;
-    border: 1px dashed #B7AE8F;
+    background: #000;
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: #7A6E4D;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12.5px;
-    padding: 20px;
+    overflow: hidden;
     margin-bottom: 18px;
   }
 
@@ -251,9 +243,13 @@
           the shape of a tool I built as an AI Intern at Blackbaud.
         </p>
         <div class="video-frame">
-          [ Walkthrough video goes here — record a 30–60s screen capture showing a warm
-          message, then a frustrated one that triggers the "for review" flag, and drop the
-          video file or embed link in this frame. ]
+          <iframe
+            src="https://drive.google.com/file/d/1aNWgUnOxaqextkyFevE4aH8CWO7AcOtG/preview"
+            width="100%" height="100%"
+            style="border:0;"
+            allow="autoplay"
+            allowfullscreen>
+          </iframe>
         </div>
         <ul>
           <li>Built the full customer-facing chat interface and live-updating profile card</li>
