@@ -1,2 +1,284 @@
 # MelissaJaneiro.github.io
 Portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Melissa Janeiro — AI Practitioner</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Source+Serif+4:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #12203A;
+    --ink-2: #1B2E4F;
+    --paper: #F7F3E8;
+    --gold: #C0A059;
+    --sage: #5B7F66;
+    --rust: #B5502E;
+    --muted: #9AA6BC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.6;
+  }
+  a { color: inherit; }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 24px; }
+
+  /* Tab / eyebrow label used throughout, like a chart-tab marker */
+  .tab {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    color: var(--gold);
+    border: 1px solid rgba(192,160,89,0.4);
+    border-radius: 999px;
+    padding: 5px 12px;
+    margin-bottom: 18px;
+  }
+
+  header.hero {
+    padding: 100px 0 70px;
+    text-align: center;
+    border-bottom: 1px solid rgba(247,243,232,0.12);
+  }
+  header.hero h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(34px, 6vw, 54px);
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  header.hero p.role {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+    margin-bottom: 26px;
+  }
+  header.hero p.pitch {
+    max-width: 560px;
+    margin: 0 auto 34px;
+    font-size: 17px;
+    color: #DCE3EE;
+  }
+  .btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 13px 26px;
+    border-radius: 8px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .btn-primary { background: var(--gold); color: var(--ink); border: none; }
+  .btn-ghost { background: transparent; color: var(--paper); border: 1px solid rgba(247,243,232,0.35); }
+
+  section { padding: 64px 0; border-bottom: 1px solid rgba(247,243,232,0.12); }
+  section:last-of-type { border-bottom: none; }
+
+  h2.section-title {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 26px;
+    margin-bottom: 28px;
+  }
+
+  /* Chart-style skills grid, like vitals on a patient chart */
+  .chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .chart-item {
+    background: rgba(247,243,232,0.04);
+    border: 1px solid rgba(247,243,232,0.14);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .chart-item .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .chart-item .value { font-size: 15px; color: var(--paper); }
+
+  /* Project index card */
+  .card {
+    background: var(--paper);
+    color: var(--ink);
+    border-radius: 14px;
+    padding: 30px 28px;
+    box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+  }
+  .card .tab-corner {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.14em;
+    color: var(--sage);
+    margin-bottom: 8px;
+  }
+  .card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  .card p { font-size: 15px; color: #33465F; margin-bottom: 16px; }
+  .card ul { margin: 0 0 20px 20px; font-size: 14.5px; color: #33465F; }
+  .card ul li { margin-bottom: 6px; }
+
+  .video-frame {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #E4DFCE;
+    border: 1px dashed #B7AE8F;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #7A6E4D;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    padding: 20px;
+    margin-bottom: 18px;
+  }
+
+  .card-links { display: flex; gap: 12px; flex-wrap: wrap; }
+  .card-links a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--ink);
+    border-bottom: 2px solid var(--gold);
+    padding-bottom: 2px;
+  }
+
+  footer {
+    padding: 50px 0 70px;
+    text-align: center;
+  }
+  footer .stamp {
+    display: inline-block;
+    border: 1.5px solid var(--gold);
+    border-radius: 50%;
+    padding: 18px 22px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  footer p { color: var(--muted); font-size: 13.5px; margin-top: 6px; }
+  footer a.email {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--paper);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+  }
+
+  @media (max-width: 600px) {
+    header.hero { padding: 70px 0 50px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="tab">PRACTITIONER FILE</span>
+      <h1>Melissa Janeiro</h1>
+      <p class="role">AI Practitioner · Registered Dental Hygienist</p>
+      <p class="pitch">
+        I build and evaluate AI-powered tools — from a live donor sentiment chatbot to
+        structured AI evaluation work — backed by 15+ years translating technical
+        information into clear, human guidance.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn-primary" href="#work">See the work</a>
+        <a class="btn btn-ghost" href="https://github.com/MelissaJaneiro" target="_blank">GitHub</a>
+        <a class="btn btn-ghost" href="mailto:melissajaneiro21@gmail.com">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <h2 class="section-title">Chart Summary</h2>
+      <div class="chart-grid">
+        <div class="chart-item">
+          <div class="label">CURRENTLY</div>
+          <div class="value">AI Intern, Blackbaud &amp; AI Expert Contributor, Snorkel AI</div>
+        </div>
+        <div class="chart-item">
+          <div class="label">BUILDS WITH</div>
+          <div class="value">Claude, React, entry-level SQL &amp; Python</div>
+        </div>
+        <div class="chart-item">
+          <div class="label">BACKGROUND</div>
+          <div class="value">Dental Hygiene, BS · 15+ years patient-facing healthcare</div>
+        </div>
+        <div class="chart-item">
+          <div class="label">STRONGEST AT</div>
+          <div class="value">Translating technical work for non-technical people</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <h2 class="section-title" style="color:#F7F3E8;">Featured Case</h2>
+      <div class="card">
+        <div class="tab-corner">CASE 001 · DONOR RELATIONS</div>
+        <h3>Donor Sentiment Dashboard</h3>
+        <p>
+          A live conversation companion that talks with donors, reads their giving motivation
+          using the published Seven Faces of Philanthropy framework, tracks mood and sentiment,
+          and flags at-risk conversations for human follow-up — an independent recreation of
+          the shape of a tool I built as an AI Intern at Blackbaud.
+        </p>
+        <div class="video-frame">
+          [ Walkthrough video goes here — record a 30–60s screen capture showing a warm
+          message, then a frustrated one that triggers the "for review" flag, and drop the
+          video file or embed link in this frame. ]
+        </div>
+        <ul>
+          <li>Built the full customer-facing chat interface and live-updating profile card</li>
+          <li>Calls Claude live for both the conversational reply and structured sentiment analysis</li>
+          <li>No employer code or data used — entirely original, from-scratch build</li>
+        </ul>
+        <div class="card-links">
+          <a href="https://github.com/MelissaJaneiro/donor-sentiment-dashboard" target="_blank">View on GitHub →</a>
+          <a href="mailto:melissajaneiro21@gmail.com">Ask me about it →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="stamp">RESUME<br/>ON REQUEST</div>
+      <div>
+        <a class="email" href="mailto:melissajaneiro21@gmail.com">melissajaneiro21@gmail.com</a>
+      </div>
+      <p>Lockhart, TX · (203) 906-7840 · Open to remote AI enablement &amp; applied AI roles</p>
+    </div>
+  </footer>
+
+</body>
+</html>
