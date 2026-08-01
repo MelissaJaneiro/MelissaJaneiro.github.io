@@ -140,10 +140,34 @@
   .video-frame {
     width: 100%;
     aspect-ratio: 16 / 9;
-    background: #000;
+    background: #12203A;
     border-radius: 10px;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-decoration: none;
+    color: #F7F3E8;
+    padding: 20px;
     margin-bottom: 18px;
+    transition: background 0.2s ease;
+  }
+  .video-frame:hover { background: #1B2E4F; }
+  .video-frame .play-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: #C0A059;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+  }
+  .video-frame .label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
   }
 
   .card-links { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -242,15 +266,12 @@
           and flags at-risk conversations for human follow-up — an independent recreation of
           the shape of a tool I built as an AI Intern at Blackbaud.
         </p>
-        <div class="video-frame">
-          <iframe
-            src="https://drive.google.com/file/d/1aNWgUnOxaqextkyFevE4aH8CWO7AcOtG/view?usp=drivesdk"
-            width="100%" height="100%"
-            style="border:0;"
-            allow="autoplay"
-            allowfullscreen>
-          </iframe>
-        </div>
+        <a class="video-frame" href="https://drive.google.com/file/d/1aNWgUnOxaqextkyFevE4aH8CWO7AcOtG/view" target="_blank" rel="noopener">
+          <span class="play-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="#12203A"><polygon points="6,4 20,12 6,20"/></svg>
+          </span>
+          <span class="label">WATCH THE 45-SECOND WALKTHROUGH</span>
+        </a>
         <ul>
           <li>Built the full customer-facing chat interface and live-updating profile card</li>
           <li>Calls Claude live for both the conversational reply and structured sentiment analysis</li>
